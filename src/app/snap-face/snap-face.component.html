@@ -1,14 +1,14 @@
 <div class="snap-face-card">
     <!-- Ajout d'un attribut avec {{ variable }} -->
-    <h2>{{titre}}</h2>
-    <p>Mise en ligne : {{date}}</p>
+    <h2>{{snapface.titre}}</h2>
+    <p>Mise en ligne : {{snapface.date}}</p>
     <!--  les valeurs associées à des attributs ne seront pas toujours des strings, 
     et il est préférable d'avoir une syntaxe unique pour une fonctionnalité. Donc [attribut]="variable" -->
-    <img [src]="imageUrl" [alt]="titre">
-    <p>{{description}}</p>
+    <img [src]="snapface.imageUrl" [alt]="snapface.titre">
+    <p>{{snapface.description}}</p>
     <p>
         <!-- (event) pour lier a un évenment -->
         <button (click)="onLike()" >{{titreLike}}</button>
-        ❤ {{like}}
+        ❤ {{snapface.like}}
     </p>
 </div>
