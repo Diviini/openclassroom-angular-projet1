@@ -5,6 +5,8 @@
     <!--  les valeurs associées à des attributs ne seront pas toujours des strings, 
     et il est préférable d'avoir une syntaxe unique pour une fonctionnalité. Donc [attribut]="variable" -->
     <img [src]="snapface.imageUrl" [alt]="snapface.titre">
+    <!-- *ngIf == si il existe -->
+    <p *ngIf="snapface.location">{{ snapface.location }}</p>
     <p>{{snapface.description}}</p>
     <p>
         <!-- (event) pour lier a un évenment -->

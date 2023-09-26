@@ -1,3 +1,1 @@
-<app-snap-face [snapface]="monSnap"></app-snap-face>
-<app-snap-face [snapface]="autreSnap"></app-snap-face>
-<app-snap-face [snapface]="dernierSnap"></app-snap-face>
+<app-snap-face *ngFor="let snapface of snapFaces" [snapface]="snapface" ></app-snap-face>
