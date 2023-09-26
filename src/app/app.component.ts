@@ -31,7 +31,7 @@ export class AppComponent implements OnInit {
       description: "Voici une simple description !", 
       imageUrl: "https://cdn.pixabay.com/photo/2023/09/07/14/26/cat-8239223_1280.png", 
       date: new Date(), 
-      like: 2
+      like: 240
     },
     {
       titre: "Mon 3e titre",
