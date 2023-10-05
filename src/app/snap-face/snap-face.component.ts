@@ -1,5 +1,6 @@
 import { Component, OnInit, Input } from '@angular/core';
 import { SnapFace } from '../models/snap-face.model';
+import { SnapFaceService } from '../services/snap-face.service';
 
 // Quand il y a un @ c'est un "décorateur", cela apporte des modifications à une classe
 @Component({
@@ -24,6 +25,8 @@ export class SnapFaceComponent implements OnInit {
   haveLiked!: boolean;
   titreLike!: string;
 
+  constructor(private snapFaceServices: SnapFaceService) {}
+
   /* La méthode  ngOnInit()  est appelée automatiquement par Angular au moment de la création de chaque instance du component. 
   Elle permet notamment d'initialiser des propriétés. */
   ngOnInit(): void {
@@ -39,16 +42,16 @@ export class SnapFaceComponent implements OnInit {
   }
 
   // Le type d'une fonction est facultative
-  onLike()/*:number*/ {
+  onLike()/*:void*/ {
     if ( this.haveLiked == false) {
       this.haveLiked = true;
       this.titreLike = "Dislike";
-      this.snapface.like++;
+      this.snapFaceServices.snapSnapFaceById(this.snapface.id, this.haveLiked);
       
     } else {
       this.haveLiked = false;
       this.titreLike = "Like";
-      this.snapface.like--;
+      this.snapFaceServices.snapSnapFaceById(this.snapface.id, this.haveLiked);
       
     }
 

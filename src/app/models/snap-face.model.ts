@@ -1,4 +1,5 @@
 export class SnapFace {
+    id!: number;
     titre!: string;
     description!: string;
     imageUrl!: string;
