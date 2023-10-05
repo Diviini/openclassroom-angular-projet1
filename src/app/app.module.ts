@@ -9,6 +9,7 @@ import { SnapFaceListComponent } from './snap-face-list/snap-face-list.component
 import { HeaderComponent } from './header/header.component';
 import { AppRoutingModule } from './app-routing.module';
 import { LandingPageComponent } from './landing-page/landing-page.component';
+import { SingleSnapfaceComponent } from './single-snapface/single-snapface.component';
 
 @NgModule({
   declarations: [
@@ -16,7 +17,8 @@ import { LandingPageComponent } from './landing-page/landing-page.component';
     SnapFaceComponent,
     SnapFaceListComponent,
     HeaderComponent,
-    LandingPageComponent
+    LandingPageComponent,
+    SingleSnapfaceComponent
   ],
   imports: [
     BrowserModule,
