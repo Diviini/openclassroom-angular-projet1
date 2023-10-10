@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { Observable, interval } from 'rxjs';
 
 @Component({
   selector: 'app-root',
@@ -7,8 +8,11 @@ import { Component, OnInit } from '@angular/core';
 })
 export class AppComponent implements OnInit {
 
+  interval$!: Observable<number>;
 
   ngOnInit(): void {
+
+    this.interval$ = interval(1000);
 
   }
 }
