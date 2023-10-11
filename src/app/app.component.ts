@@ -8,7 +8,12 @@ import { concatMap, mergeMap, delay, exhaustMap, map, switchMap, take, tap } fro
   styleUrls: ['./app.component.scss']
 })
 export class AppComponent implements OnInit {
+  
+  
+  ngOnInit(): void {
+  }
 
+  /*
   interval$!:Observable<string>;
   redTrainsCalled = 0;
   yellowTrainsCalled = 0;
@@ -36,4 +41,5 @@ export class AppComponent implements OnInit {
   translateColor(color: 'rouge' | 'jaune') {
     return color === 'rouge' ? 'red' : 'yellow';
   }
+  */
 }
