@@ -43,14 +43,18 @@ export class SnapFaceService  {
         )
     }
 
-    addFaceSnap(formValue: {titre: string, description: string, imageUrl: string, location?: string}):void {
-        /*const faceSnap: SnapFace = {
-            ...formValue,
-            date: new Date(),
-            like: 0,
-            id: (this.snapFaces[this.snapFaces.length-1].id + 1)
-        };
-        this.snapFaces.push(faceSnap);*/
+    addFaceSnap(formValue: {titre: string, description: string, imageUrl: string, location?: string}): Observable<SnapFace> {
+        return this.getAllSnapFace().pipe(
+            map(snapfaces           => [...snapfaces].sort((a,b) => a.id - b.id)), //Trie du tableau en un nouveau trié
+            map(sortedSnapFaces     => sortedSnapFaces[sortedSnapFaces.length-1]), //On récupère le dernier SnapFace
+            map(previousSnapFace    => ({                                          // Création au dernier index + 1
+                ...formValue,
+                like: 0,
+                date: new Date(),
+                id: previousSnapFace.id + 1
+            })),
+            switchMap(newSnapFace => this.http.post<SnapFace>('http://localhost:3000/facesnaps', newSnapFace))
+        )
     }
 
 }
