@@ -55,5 +55,14 @@ export class SnapFaceService  {
         faceSnapType === true ? snapFace.like++ : snapFace.like--;
     }
 
+    addFaceSnap(formValue: {titre: string, description: string, imageUrl: string, location?: string}):void {
+        const faceSnap: SnapFace = {
+            ...formValue,
+            date: new Date(),
+            like: 0,
+            id: (this.snapFaces[this.snapFaces.length-1].id + 1)
+        };
+        this.snapFaces.push(faceSnap);
+    }
 
 }
