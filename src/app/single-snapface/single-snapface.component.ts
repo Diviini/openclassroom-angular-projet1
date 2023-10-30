@@ -2,7 +2,7 @@ import { Component, Input, OnInit } from '@angular/core';
 import { SnapFace } from '../models/snap-face.model';
 import { SnapFaceService } from '../services/snap-face.service';
 import { ActivatedRoute } from '@angular/router';
-import { Observable } from 'rxjs';
+import { Observable, tap } from 'rxjs';
 
 @Component({
   selector: 'app-single-snapface',
@@ -30,17 +30,23 @@ export class SingleSnapfaceComponent implements OnInit {
     this.snapFace$ = this.snapFaceServices.getSnapFaceById(snapFaceId);
   }
 
-  onLike(): void {
-    /*
+  onLike(snapFaceId: number): void {
+    
     if (this.haveLiked == false) {
-      this.haveLiked = true;
-      this.titreLike = 'Dislike';
-      this.snapFaceServices.snapSnapFaceById(this.snapface.id, this.haveLiked);
+      this.snapFace$ = this.snapFaceServices.snapSnapFaceById(snapFaceId, this.haveLiked).pipe(
+        tap(() => {
+          this.haveLiked = true;
+          this.titreLike = 'Dislike';
+        })
+      )
     } else {
-      this.haveLiked = false;
-      this.titreLike = 'Like';
-      this.snapFaceServices.snapSnapFaceById(this.snapface.id, this.haveLiked);
+      this.snapFace$ = this.snapFaceServices.snapSnapFaceById(snapFaceId, this.haveLiked).pipe(
+        tap(() => {
+          this.haveLiked = false;
+          this.titreLike = 'Like';
+        })
+      )
     }
-    */
+    
   }
 }

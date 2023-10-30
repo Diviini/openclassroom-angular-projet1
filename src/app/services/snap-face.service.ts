@@ -2,7 +2,7 @@
 import { Injectable } from "@angular/core";
 import { SnapFace } from "../models/snap-face.model";
 import { HttpClient } from "@angular/common/http";
-import { Observable } from "rxjs";
+import { Observable, map, switchMap } from "rxjs";
 
 //Service enregistré a la racine de l'appli, donc 1 instance
 @Injectable({
@@ -13,7 +13,7 @@ export class SnapFaceService  {
     
     constructor(private http: HttpClient) {}
     
-    snapFaces: SnapFace[] = [];
+    //snapFaces: SnapFace[] = [];
 
 
     getAllSnapFace():Observable<SnapFace[]> {
@@ -32,21 +32,25 @@ export class SnapFaceService  {
         }*/
     }
 
-    snapSnapFaceById( snapFaceId:number, faceSnapType:boolean /* faceSnapStype : 'like' | 'dislike' si j'avais fait avec un string */ ):void {
-        /*
-        const snapFace = this.getSnapFaceById(snapFaceId);
-        faceSnapType === true ? snapFace.like++ : snapFace.like--;
-        */
+    snapSnapFaceById( snapFaceId:number, faceSnapType:boolean /* faceSnapStype : 'like' | 'dislike' si j'avais fait avec un string */ ): Observable<SnapFace> {
+
+        return this.getSnapFaceById(snapFaceId).pipe(
+            map(snapFace => ({
+                ...snapFace,
+                like: snapFace.like + (faceSnapType === false ? 1 : -1)
+            })),
+            switchMap(updateSnapFace => this.http.put<SnapFace>(`http://localhost:3000/facesnaps/${snapFaceId}`, updateSnapFace))
+        )
     }
 
     addFaceSnap(formValue: {titre: string, description: string, imageUrl: string, location?: string}):void {
-        const faceSnap: SnapFace = {
+        /*const faceSnap: SnapFace = {
             ...formValue,
             date: new Date(),
             like: 0,
             id: (this.snapFaces[this.snapFaces.length-1].id + 1)
         };
-        this.snapFaces.push(faceSnap);
+        this.snapFaces.push(faceSnap);*/
     }
 
 }

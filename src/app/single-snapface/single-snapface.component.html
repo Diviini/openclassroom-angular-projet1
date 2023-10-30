@@ -6,7 +6,7 @@
     <img [src]="snapface.imageUrl" [alt]="snapface.titre">
     <p>{{snapface.description | lowercase }}</p>
     <p>
-        <button (click)="onLike()">{{titreLike}}</button>
+        <button (click)="onLike(snapface.id)">{{titreLike}}</button>
         <span [ngStyle]="{ color: 'rgb(0,' + snapface.like + ', 0 )'}"> ❤ {{snapface.like}} </span>
     </p>
 </div>
