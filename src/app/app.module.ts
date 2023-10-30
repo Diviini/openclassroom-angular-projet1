@@ -13,6 +13,7 @@ import { SingleSnapfaceComponent } from './single-snapface/single-snapface.compo
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { NewSnapFaceComponent } from './new-snap-face/new-snap-face.component';
 import { HttpClient, HttpClientModule } from '@angular/common/http'
+import { HttpInterceptorProviders } from './interceptors';
 
 @NgModule({
   declarations: [
@@ -32,7 +33,8 @@ import { HttpClient, HttpClientModule } from '@angular/common/http'
     HttpClientModule
   ],
   providers: [
-    {provide: LOCALE_ID, useValue: 'fr-FR'}
+    {provide: LOCALE_ID, useValue: 'fr-FR'},
+    HttpInterceptorProviders
   ],
   bootstrap: [AppComponent]
 })
