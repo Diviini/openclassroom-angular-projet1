@@ -12,6 +12,7 @@ import { LandingPageComponent } from './landing-page/landing-page.component';
 import { SingleSnapfaceComponent } from './single-snapface/single-snapface.component';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { NewSnapFaceComponent } from './new-snap-face/new-snap-face.component';
+import { HttpClient, HttpClientModule } from '@angular/common/http'
 
 @NgModule({
   declarations: [
@@ -27,7 +28,8 @@ import { NewSnapFaceComponent } from './new-snap-face/new-snap-face.component';
     BrowserModule,
     AppRoutingModule,
     FormsModule,
-    ReactiveFormsModule
+    ReactiveFormsModule,
+    HttpClientModule
   ],
   providers: [
     {provide: LOCALE_ID, useValue: 'fr-FR'}

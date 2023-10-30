@@ -1,4 +1,4 @@
-<div class="snap-face-card" [ngClass]="{'snapped' : haveLiked }">
+<div class="snap-face-card" *ngIf="snapFace$ |async as snapface" [ngClass]="{'snapped' : haveLiked }">
     <h2>{{snapface.titre | titlecase }}</h2>
     <a routerLink="/snapFaces">Retour</a>
     <p *ngIf="snapface.location">{{ snapface.location }}</p>
