@@ -1,6 +1,6 @@
 import { Component, OnInit, Input } from '@angular/core';
-import { SnapFace } from '../models/snap-face.model';
-import { SnapFaceService } from '../services/snap-face.service';
+import { SnapFace } from '../../../core/models/snap-face.model';
+import { SnapFaceService } from '../../../core/services/snap-face.service';
 import { Router } from '@angular/router';
 
 // Quand il y a un @ c'est un "décorateur", cela apporte des modifications à une classe

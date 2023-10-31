@@ -1,6 +1,6 @@
 import { Component, Input, OnInit } from '@angular/core';
-import { SnapFace } from '../models/snap-face.model';
-import { SnapFaceService } from '../services/snap-face.service';
+import { SnapFace } from '../../../core/models/snap-face.model';
+import { SnapFaceService } from '../../../core/services/snap-face.service';
 import { ActivatedRoute } from '@angular/router';
 import { Observable, tap } from 'rxjs';
 
