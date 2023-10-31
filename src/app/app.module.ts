@@ -4,7 +4,6 @@ import { BrowserModule } from '@angular/platform-browser';
 import { AppComponent } from './app.component';
 import { AppRoutingModule } from './app-routing.module';
 import { CoreModule } from './core/core.module';
-import { SnapsFaceModule } from './snaps-face/snaps-face.module';
 import { LandingPageModule } from './landing-page/landing-page.module';
 
 @NgModule({
@@ -15,7 +14,6 @@ import { LandingPageModule } from './landing-page/landing-page.module';
     BrowserModule,
     AppRoutingModule,
     CoreModule,
-    SnapsFaceModule,
     LandingPageModule
   ],
   bootstrap: [AppComponent]

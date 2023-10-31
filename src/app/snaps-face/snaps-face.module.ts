@@ -5,7 +5,7 @@ import { SnapFaceListComponent } from './components/snap-face-list/snap-face-lis
 import { NewSnapFaceComponent } from './components/new-snap-face/new-snap-face.component';
 import { SingleSnapfaceComponent } from './components/single-snapface/single-snapface.component';
 import { ReactiveFormsModule } from '@angular/forms';
-import { RouterModule } from '@angular/router';
+import { SnapFaceRoutingModule } from './snap-face-routing.module';
 
 
 
@@ -19,7 +19,7 @@ import { RouterModule } from '@angular/router';
   imports: [
     CommonModule,
     ReactiveFormsModule,
-    RouterModule
+    SnapFaceRoutingModule
   ],
   exports: [
     SnapFaceComponent,
