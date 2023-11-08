@@ -8,6 +8,7 @@ import { SnapFace } from '../models/snap-face.model';
   templateUrl: './new-snap-face.component.html',
   styleUrls: ['./new-snap-face.component.scss'],
 })
+
 export class NewSnapFaceComponent implements OnInit {
   snapForm!: FormGroup;
   snapFacePreview$!: Observable<SnapFace>
