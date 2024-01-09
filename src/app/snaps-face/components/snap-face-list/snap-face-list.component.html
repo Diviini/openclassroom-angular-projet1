@@ -1,1 +1,3 @@
-<app-snap-face *ngFor="let snapface of snapFaces$ | async" [snapface]="snapface" ></app-snap-face>
+@for (snapface of (snapFaces$ | async); track snapface.id) {
+    <app-snap-face [snapface]="snapface" ></app-snap-face>  
+}

@@ -23,11 +23,15 @@
         </div>
     </form>
 </div>
-<div class="snap-face-card" *ngIf="snapFacePreview$ | async as snapface" >
-    <h2>{{snapface.titre| titlecase }}</h2>
-    <a routerLink="/snapFaces">Retour</a>
-    <p *ngIf="snapface.location">{{ snapface.location }}</p>
-    <p>{{snapface.date | date: "HH:mm, dd MMMM yyyy"}}</p>
-    <img [src]="snapface.imageUrl" [alt]="snapface.titre">
-    <p>{{snapface.description | lowercase }}</p>
-</div>
+@if( (snapFacePreview$ | async); as snapface) {
+    <div class="snap-face-card" >
+        <h2>{{snapface.titre| titlecase }}</h2>
+        <a routerLink="/snapFaces">Retour</a>
+        @if (snapface.location) {
+            <p>{{ snapface.location }}</p>
+        }
+        <p>{{snapface.date | date: "HH:mm, dd MMMM yyyy"}}</p>
+        <img [src]="snapface.imageUrl" [alt]="snapface.titre">
+        <p>{{snapface.description | lowercase }}</p>
+    </div>
+}
